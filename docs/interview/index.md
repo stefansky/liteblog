@@ -12,9 +12,7 @@
 
 ## 最新文章
 
-- [前端面试题集锦](/interview/frontend)
-- [算法题解](/interview/algorithms)
-- [面试技巧分享](/interview/tips)
+
 
 ## 面试准备
 

@@ -13,12 +13,7 @@
 
 ## 最新文章
 
-- [Node.js 最佳实践](/backend/nodejs)
-- [数据库优化技巧](/backend/database)
-- [RESTful API 设计指南](/backend/api-design)
+
 
 ## 学习资源
 
-- [Node.js 官方文档](https://nodejs.org/)
-- [MongoDB 文档](https://docs.mongodb.com/)
-- [PostgreSQL 文档](https://www.postgresql.org/docs/) 

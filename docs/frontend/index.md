@@ -4,17 +4,7 @@
 
 ## 技术栈文档
 
-### 框架
-- [Vue2 技术栈](/frontend/vue2) - Vue2 的核心概念、使用技巧和最佳实践
-- [Vue3 技术栈](/frontend/vue3) - Vue3 的新特性、Composition API 和性能优化
-- [React 技术栈](/frontend/react) - React 的核心概念、Hooks 和状态管理
 
-### 工具库
-- [Axios 使用指南](/frontend/axios) - HTTP 请求库的配置和使用
-- [Jest 测试框架](/frontend/jest) - 前端测试框架的使用和最佳实践
-- [UI 框架指南](/frontend/ui-frameworks) - 常用 UI 组件库的使用和定制
-- [ESLint & Prettier 配置](/frontend/eslint-prettier) - 代码规范和格式化工具
-- [脚手架工具](/frontend/scaffolding) - Webpack、Vite、Vue CLI 等构建工具
 
 ## 主要内容
 

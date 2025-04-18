@@ -11,9 +11,7 @@
 
 ## 最新项目
 
-- [开源项目分享](/projects/open-source)
-- [商业项目经验](/projects/commercial)
-- [项目架构设计](/projects/architecture)
+
 
 ## 项目展示
 

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
+    "debug": "vitepress build docs --debug",
     "preview": "vitepress preview docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

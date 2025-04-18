@@ -12,9 +12,7 @@
 
 ## 最新文章
 
-- [成长历程](/life/growth)
-- [生活感悟](/life/thoughts)
-- [读书笔记](/life/books)
+
 
 ## 生活分享
 
