@@ -25,7 +25,8 @@ export default defineConfig({
             { text: '1.html基础语法', link: '/frontend/web/base' },
             { text: '2.css基础语法', link: '/frontend/web/css' },
             { text: '3.响应式布局', link: '/frontend/web/bootstrap' },
-            { text: '4.移动端布局', link: '/frontend/web/mobile' }
+            { text: '4.移动端布局', link: '/frontend/web/mobile' },
+            { text: '5.布局应用', link: '/frontend/web/less' }
           ]
         },
         {
@@ -83,8 +84,8 @@ export default defineConfig({
           items: [
             { text: '1.原生微信小程序', link: '/frontend/weapp/wx' },
             { text: '2.跨端小程序开发', link: '/frontend/weapp/uni' },
-            // { text: '3.React Native', link: '/frontend/weapp/rn' },
-            // { text: '4.Flutter', link: '/frontend/weapp/flutter' }
+            { text: '3.React Native', link: '/frontend/weapp/RN' },
+            { text: '4.Flutter', link: '/frontend/weapp/Flutter' }
           ]
         }
       ],
