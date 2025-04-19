@@ -122,7 +122,7 @@ export default defineConfig({
           items: [
             { text: '微服务基础', link: '/backend/micro/base' },
             { text: '服务发现', link: '/backend/micro/discovery' },
-            { text: '服务治理', link: '/backend/micro/governance' }
+           
           ]
         },
         {
@@ -130,7 +130,9 @@ export default defineConfig({
           items: [
             { text: '架构设计', link: '/backend/architecture/design' },
             { text: '性能优化', link: '/backend/architecture/performance' },
-            { text: '安全防护', link: '/backend/architecture/security' }
+            { text: '设计模式', link: '/backend/architecture/design-pattern' },
+            { text: '数据结构', link: '/backend/architecture/data-structure' },
+            { text: '算法', link: '/backend/architecture/algorithm' }
           ]
         },
         {
