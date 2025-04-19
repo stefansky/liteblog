@@ -1,18 +1,18 @@
-# MySQL 数据库
+# PostgreSQL 数据库
 
 ## 基础使用
 
 ### 安装与配置
 
 ```bash
-# 安装 MySQL
-brew install mysql
+# 安装 PostgreSQL
+brew install postgresql
 
-# 启动 MySQL 服务
-brew services start mysql
+# 启动 PostgreSQL 服务
+brew services start postgresql
 
-# 连接 MySQL
-mysql -u root -p
+# 连接 PostgreSQL
+psql -U postgres
 ```
 
 ### 基本命令
@@ -21,12 +21,12 @@ mysql -u root -p
 -- 创建数据库
 CREATE DATABASE dbname;
 
--- 选择数据库
-USE dbname;
+-- 连接数据库
+\c dbname
 
 -- 创建表
 CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -52,16 +52,14 @@ DELETE FROM users WHERE id = 1;
 
 ```sql
 -- 整数类型
-TINYINT      -- 1字节
 SMALLINT     -- 2字节
-MEDIUMINT    -- 3字节
-INT          -- 4字节
+INTEGER      -- 4字节
 BIGINT       -- 8字节
 
 -- 浮点类型
-FLOAT        -- 4字节
-DOUBLE       -- 8字节
-DECIMAL      -- 精确小数
+REAL         -- 4字节
+DOUBLE PRECISION  -- 8字节
+NUMERIC      -- 精确小数
 ```
 
 ### 字符串类型
@@ -72,11 +70,12 @@ CHAR(10)     -- 固定长度
 
 -- 变长字符串
 VARCHAR(255) -- 可变长度
+TEXT         -- 无限长度
 
--- 文本类型
-TEXT         -- 长文本
-MEDIUMTEXT   -- 中等长度文本
-LONGTEXT     -- 超长文本
+-- 特殊类型
+UUID         -- UUID类型
+JSON         -- JSON类型
+JSONB        -- 二进制JSON
 ```
 
 ### 日期时间类型
@@ -84,9 +83,9 @@ LONGTEXT     -- 超长文本
 ```sql
 DATE         -- 日期
 TIME         -- 时间
-DATETIME     -- 日期时间
 TIMESTAMP    -- 时间戳
-YEAR         -- 年份
+TIMESTAMPTZ  -- 带时区时间戳
+INTERVAL     -- 时间间隔
 ```
 
 ## 索引
@@ -96,7 +95,7 @@ YEAR         -- 年份
 ```sql
 -- 主键索引
 CREATE TABLE users (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50)
 );
 
@@ -108,26 +107,38 @@ CREATE INDEX idx_name ON users(name);
 
 -- 复合索引
 CREATE INDEX idx_name_age ON users(name, age);
+
+-- 部分索引
+CREATE INDEX idx_active_users ON users(name) WHERE status = 'active';
+
+-- 表达式索引
+CREATE INDEX idx_lower_name ON users(lower(name));
 ```
 
 ### 索引类型
 
 1. B-Tree 索引
 
+   - 默认索引类型
    - 适合等值查询和范围查询
-   - 支持排序和分组
-   - 最常用的索引类型
+   - 支持排序
 
-2. 哈希索引
+2. Hash 索引
 
    - 适合等值查询
    - 不支持范围查询
    - 不支持排序
 
-3. 全文索引
-   - 适合文本搜索
-   - 支持模糊查询
-   - 用于 MyISAM 和 InnoDB 引擎
+3. GiST 索引
+
+   - 通用搜索树
+   - 支持几何数据类型
+   - 支持全文搜索
+
+4. GIN 索引
+   - 通用倒排索引
+   - 适合数组和全文搜索
+   - 支持多值类型
 
 ## 事务
 
@@ -135,7 +146,7 @@ CREATE INDEX idx_name_age ON users(name, age);
 
 ```sql
 -- 开始事务
-START TRANSACTION;
+BEGIN;
 
 -- 执行操作
 INSERT INTO users (name) VALUES ('John');
@@ -158,23 +169,58 @@ SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 ```
 
-## 存储引擎
+## 高级特性
 
-### InnoDB
+### 表继承
 
-- 支持事务
-- 支持外键
-- 支持行级锁
-- 支持崩溃恢复
-- 默认存储引擎
+```sql
+-- 创建父表
+CREATE TABLE persons (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    age INTEGER
+);
 
-### MyISAM
+-- 创建子表
+CREATE TABLE employees (
+    salary DECIMAL(10,2)
+) INHERITS (persons);
+```
 
-- 不支持事务
-- 不支持外键
-- 支持表级锁
-- 支持全文索引
-- 适合读多写少
+### 窗口函数
+
+```sql
+-- 排名
+SELECT
+    name,
+    salary,
+    RANK() OVER (ORDER BY salary DESC) as rank
+FROM employees;
+
+-- 分组统计
+SELECT
+    department,
+    name,
+    salary,
+    AVG(salary) OVER (PARTITION BY department) as avg_salary
+FROM employees;
+```
+
+### 物化视图
+
+```sql
+-- 创建物化视图
+CREATE MATERIALIZED VIEW mv_employee_stats AS
+SELECT
+    department,
+    COUNT(*) as count,
+    AVG(salary) as avg_salary
+FROM employees
+GROUP BY department;
+
+-- 刷新物化视图
+REFRESH MATERIALIZED VIEW mv_employee_stats;
+```
 
 ## 性能优化
 
@@ -197,14 +243,14 @@ SELECT * FROM users WHERE name = 'John' AND age > 18;
 ### 表优化
 
 ```sql
--- 优化表
-OPTIMIZE TABLE users;
-
 -- 分析表
-ANALYZE TABLE users;
+ANALYZE users;
 
--- 修复表
-REPAIR TABLE users;
+-- 清理表
+VACUUM users;
+
+-- 完全清理
+VACUUM FULL users;
 ```
 
 ## 备份与恢复
@@ -213,23 +259,23 @@ REPAIR TABLE users;
 
 ```bash
 # 备份整个数据库
-mysqldump -u root -p dbname > backup.sql
+pg_dump -U postgres dbname > backup.sql
 
 # 备份特定表
-mysqldump -u root -p dbname table1 table2 > backup.sql
+pg_dump -U postgres -t users -t posts dbname > tables.sql
 
 # 压缩备份
-mysqldump -u root -p dbname | gzip > backup.sql.gz
+pg_dump -U postgres dbname | gzip > backup.sql.gz
 ```
 
 ### 恢复
 
 ```bash
 # 恢复数据库
-mysql -u root -p dbname < backup.sql
+psql -U postgres dbname < backup.sql
 
 # 从压缩文件恢复
-gunzip < backup.sql.gz | mysql -u root -p dbname
+gunzip < backup.sql.gz | psql -U postgres dbname
 ```
 
 ## 最佳实践
@@ -239,7 +285,7 @@ gunzip < backup.sql.gz | mysql -u root -p dbname
    - 合理设计表结构
    - 选择合适的数据类型
    - 建立适当的索引
-   - 规范化数据库
+   - 使用约束
 
 2. 性能优化
 

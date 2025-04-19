@@ -42,7 +42,8 @@ export default defineConfig({
             { text: '1.测试', link: '/frontend/other/jest' },
             { text: '2.开发规范', link: '/frontend/other/standard' },
             { text: '3.构建工具', link: '/frontend/other/tool' },
-            { text: '4.开发自己的npm包', link: '/frontend/other/npm' }
+            { text: '4.开发自己的npm包', link: '/frontend/other/npm' },
+            { text: '5.网络请求', link: '/frontend/axios' }
           ]
         },
         {
@@ -90,70 +91,64 @@ export default defineConfig({
         }
       ],
       '/backend/': [
-        // {
-        //   text: 'node技术栈',
-        //   items: [
-        //     { text: 'Node.js 基础', link: '/backend/node/base' },
-        //     { text: 'Express/Koa', link: '/backend/node/framework' },
-        //     { text: 'Node.js 实战', link: '/backend/node/practice' }
-        //   ]
-        // },
-        // {
-        //   text: 'go技术栈',
-        //   items: [
-        //     { text: 'Go 基础', link: '/backend/go/base' },
-        //     { text: 'Gin 框架', link: '/backend/go/gin' },
-        //     { text: 'Go 实战', link: '/backend/go/practice' }
-        //   ]
-        // },
-        // {
-        //   text: '数据库',
-        //   items: [
-        //     { text: 'MySQL', link: '/backend/db/mysql' },
-        //     { text: 'MongoDB', link: '/backend/db/mongodb' },
-        //     { text: 'Redis', link: '/backend/db/redis' }
-        //   ]
-        // },
-        // {
-        //   text: 'docker',
-        //   items: [
-        //     { text: 'Docker 基础', link: '/backend/docker/base' },
-        //     { text: 'Docker Compose', link: '/backend/docker/compose' },
-        //     { text: 'Docker 实战', link: '/backend/docker/practice' }
-        //   ]
-        // },
-        // {
-        //   text: '微服务',
-        //   items: [
-        //     { text: '微服务基础', link: '/backend/micro/base' },
-        //     { text: '服务发现', link: '/backend/micro/discovery' },
-        //     { text: '服务治理', link: '/backend/micro/governance' }
-        //   ]
-        // },
-        // {
-        //   text: '项目架构',
-        //   items: [
-        //     { text: '架构设计', link: '/backend/architecture/design' },
-        //     { text: '性能优化', link: '/backend/architecture/performance' },
-        //     { text: '安全防护', link: '/backend/architecture/security' }
-        //   ]
-        // },
-        // {
-        //   text: '其他技术',
-        //   items: [
-        //     { text: 'Git 使用', link: '/backend/other/git' },
-        //     { text: 'CI/CD', link: '/backend/other/cicd' },
-        //     { text: 'DevOps', link: '/backend/other/devops' }
-        //   ]
-        // }
+        {
+          text: 'node技术栈',
+          items: [
+            { text: 'Node.js 基础', link: '/backend/node/base' },
+            { text: 'Express/Koa', link: '/backend/node/express' },
+            { text: 'Node.js 实战', link: '/backend/node/practice' }
+          ]
+        },
+        {
+          text: '数据库',
+          items: [
+            { text: '数据库基础', link: '/backend/db/base' },
+            { text: 'MySQL', link: '/backend/db/mysql' },
+            { text: 'MongoDB', link: '/backend/db/mongodb' },
+            { text: 'Redis', link: '/backend/db/redis' },
+            { text: 'PostgreSQL', link: '/backend/db/postgresql' }
+          ]
+        },
+        {
+          text: 'docker',
+          items: [
+            { text: 'Docker 基础', link: '/backend/docker/base' },
+            { text: 'Docker Compose', link: '/backend/docker/compose' },
+            { text: 'Docker 实战', link: '/backend/docker/practice' }
+          ]
+        },
+        {
+          text: '微服务',
+          items: [
+            { text: '微服务基础', link: '/backend/micro/base' },
+            { text: '服务发现', link: '/backend/micro/discovery' },
+            { text: '服务治理', link: '/backend/micro/governance' }
+          ]
+        },
+        {
+          text: '项目架构',
+          items: [
+            { text: '架构设计', link: '/backend/architecture/design' },
+            { text: '性能优化', link: '/backend/architecture/performance' },
+            { text: '安全防护', link: '/backend/architecture/security' }
+          ]
+        },
+        {
+          text: '其他技术',
+          items: [
+            { text: 'Git 使用', link: '/backend/other/git' },
+            { text: 'CI/CD', link: '/backend/other/cicd' },
+            { text: 'DevOps', link: '/backend/other/devops' }
+          ]
+        }
       ],
       '/projects/': [
         {
           text: '项目经验',
           items: [
             { text: '介绍', link: '/projects/' },
-            // { text: '开源项目', link: '/projects/open-source' },
-            // { text: '商业项目', link: '/projects/commercial' }
+            { text: '开源项目', link: '/projects/open-source' },
+            { text: '商业项目', link: '/projects/commercial' }
           ]
         }
       ],
@@ -169,7 +164,7 @@ export default defineConfig({
             { text: 'react面试题', link: '/interview/practice/react' },
             { text: '小程序面试题', link: '/interview/practice/wx' },
             { text: '笔试及手写代码', link: '/interview/practice/code' },
-            // { text: '算法题解', link: '/interview/algorithms/base' }
+            { text: '算法题解', link: '/interview/algorithms/base' }
           ]
         }
       ],
@@ -178,8 +173,8 @@ export default defineConfig({
           text: '创业经历',
           items: [
             { text: '介绍', link: '/startup/' },
-            // { text: '创业故事', link: '/startup/stories' },
-            // { text: '经验分享', link: '/startup/experience' }
+            { text: '创业故事', link: '/startup/stories' },
+            { text: '经验分享', link: '/startup/experience' }
           ]
         }
       ],
@@ -188,8 +183,8 @@ export default defineConfig({
           text: '人生经历',
           items: [
             { text: '介绍', link: '/life/' },
-            // { text: '成长历程', link: '/life/growth' },
-            // { text: '生活感悟', link: '/life/thoughts' }
+            { text: '成长历程', link: '/life/growth' },
+            { text: '生活感悟', link: '/life/thoughts' }
           ]
         }
       ]

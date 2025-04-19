@@ -4,6 +4,29 @@
 
 # Vue 3 基础
 
+## Vue3 与 Vue2 的区别
+
+### 1. 性能提升
+
+- 更快的渲染速度
+- 更小的打包体积
+- 更好的内存使用
+- 更优的 Tree-shaking
+
+### 2. 组合式 API
+
+- 更好的代码组织
+- 更好的类型推导
+- 更好的代码复用
+- 更好的逻辑复用
+
+### 3. 响应式系统
+
+- 基于 Proxy 的响应式
+- 更精确的依赖追踪
+- 更好的性能
+- 更少的限制
+
 ## 核心概念
 
 ### 响应式系统
@@ -25,6 +48,12 @@ const state = reactive({
 });
 console.log(state.count); // 0
 state.count++; // 修改值
+
+// 使用 toRefs 解构响应式对象
+import { toRefs } from "vue";
+
+const { count, name } = toRefs(state);
+console.log(count.value); // 0
 ```
 
 ### 计算属性
@@ -35,17 +64,29 @@ import { ref, computed } from "vue";
 const firstName = ref("John");
 const lastName = ref("Doe");
 
+// 只读计算属性
 const fullName = computed(() => {
   return `${firstName.value} ${lastName.value}`;
+});
+
+// 可写计算属性
+const fullName = computed({
+  get() {
+    return `${firstName.value} ${lastName.value}`;
+  },
+  set(newValue) {
+    [firstName.value, lastName.value] = newValue.split(" ");
+  },
 });
 ```
 
 ### 监听器
 
 ```javascript
-import { ref, watch } from "vue";
+import { ref, watch, watchEffect } from "vue";
 
 const count = ref(0);
+const name = ref("Vue");
 
 // 监听单个响应式数据
 watch(count, (newValue, oldValue) => {
@@ -56,6 +97,11 @@ watch(count, (newValue, oldValue) => {
 watch([count, name], ([newCount, newName], [oldCount, oldName]) => {
   console.log(`count: ${oldCount} -> ${newCount}`);
   console.log(`name: ${oldName} -> ${newName}`);
+});
+
+// 立即执行的监听器
+watchEffect(() => {
+  console.log(`count: ${count.value}, name: ${name.value}`);
 });
 ```
 
@@ -113,6 +159,14 @@ defineEmits(["update"]);
 <template>
   <ChildComponent :title="title" :count="count" @update="count = $event" />
 </template>
+
+<script setup>
+import { ref } from "vue";
+import ChildComponent from "./ChildComponent.vue";
+
+const title = "Child Component";
+const count = ref(0);
+</script>
 ```
 
 ### 插槽
@@ -150,11 +204,28 @@ defineEmits(["update"]);
 ## 生命周期钩子
 
 ```javascript
-import { onMounted, onUpdated, onUnmounted } from "vue";
+import {
+  onMounted,
+  onUpdated,
+  onUnmounted,
+  onBeforeMount,
+  onBeforeUpdate,
+  onBeforeUnmount,
+} from "vue";
+
+// 组件挂载前
+onBeforeMount(() => {
+  console.log("Component will mount");
+});
 
 // 组件挂载后
 onMounted(() => {
   console.log("Component mounted");
+});
+
+// 组件更新前
+onBeforeUpdate(() => {
+  console.log("Component will update");
 });
 
 // 组件更新后
@@ -163,6 +234,11 @@ onUpdated(() => {
 });
 
 // 组件卸载前
+onBeforeUnmount(() => {
+  console.log("Component will unmount");
+});
+
+// 组件卸载后
 onUnmounted(() => {
   console.log("Component unmounted");
 });
@@ -176,8 +252,8 @@ onUnmounted(() => {
 // useCounter.js
 import { ref } from "vue";
 
-export function useCounter() {
-  const count = ref(0);
+export function useCounter(initialValue = 0) {
+  const count = ref(initialValue);
 
   const increment = () => {
     count.value++;
@@ -196,8 +272,8 @@ export function useCounter() {
 
 // Component.vue
 <script setup>
-  import {useCounter} from './useCounter' const {(count, increment, decrement)}{" "}
-  = useCounter()
+  import {useCounter} from './useCounter'; const {(count, increment, decrement)}{" "}
+  = useCounter();
 </script>;
 ```
 
