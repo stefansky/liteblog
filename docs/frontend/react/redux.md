@@ -1,8 +1,6 @@
 # React 状态管理
 
-> 本文整理常用的 React 状态管理方案，包括 Redux、MobX、Context API 与 Zustand，涵盖原理解析、使用方法、应用场景及性能优化建议。
 
----
 
 ## 1. Redux
 
