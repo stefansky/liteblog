@@ -43,7 +43,8 @@ export default defineConfig({
             { text: '2.开发规范', link: '/frontend/other/standard' },
             { text: '3.构建工具', link: '/frontend/other/tool' },
             { text: '4.开发自己的npm包', link: '/frontend/other/npm' },
-            { text: '5.网络请求', link: '/frontend/axios' }
+            { text: '5.网络请求', link: '/frontend/other/axios' },
+            { text: '5.webpack', link: '/frontend/other/webpack' }
           ]
         },
         {
@@ -81,12 +82,21 @@ export default defineConfig({
           ]
         },
         {
+          text: '前端常用UI框架使用',
+          items: [
+            { text: '1.基本语法', link: '/frontend/ui-frameworks' },
+         
+          ]
+        },
+        {
           text: '应用开发',
           items: [
             { text: '1.原生微信小程序', link: '/frontend/weapp/wx' },
-            { text: '2.跨端小程序开发', link: '/frontend/weapp/uni' },
-            { text: '3.React Native', link: '/frontend/weapp/RN' },
-            { text: '4.Flutter', link: '/frontend/weapp/Flutter' }
+            { text: '2.微信小程序高级', link: '/frontend/weapp/senior' },
+            { text: '3.跨端小程序开发', link: '/frontend/weapp/uni' },
+            { text: '4.React Native', link: '/frontend/weapp/RN' },
+            { text: '5.Flutter', link: '/frontend/weapp/Flutter' },
+            { text: '6.Electron', link: '/frontend/weapp/Electron' }
           ]
         }
       ],
