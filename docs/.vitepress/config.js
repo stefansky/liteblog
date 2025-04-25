@@ -44,7 +44,8 @@ export default defineConfig({
             { text: '3.构建工具', link: '/frontend/other/tool' },
             { text: '4.开发自己的npm包', link: '/frontend/other/npm' },
             { text: '5.网络请求', link: '/frontend/other/axios' },
-            { text: '5.webpack', link: '/frontend/other/webpack' }
+            { text: '6.webpack', link: '/frontend/other/webpack' }
+            { text: '7.微前端', link: '/frontend/other/mico' }
           ]
         },
         {
