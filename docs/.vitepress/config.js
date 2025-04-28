@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     base: '/liteblog/',
     logo: '/logo.svg',
-  title: '我的技术站点',
-  description: '记录前端开发的点滴',
+  title: '一个程序员的职业生涯',
+  description: '记录职业生涯的点滴',
   lang: 'zh-CN',
   themeConfig: {
     nav: [
@@ -12,11 +12,10 @@ export default defineConfig({
       { text: '前端', link: '/frontend/' },
       { text: '服务端', link: '/backend/' },
       { text: '项目', link: '/projects/' },
-      { text: '面试', link: '/interview/' },
-      { text: '前端面试宝典', link: '/interview/practice/all' },
-      { text: '创业', link: '/startup/' },
-      { text: '人生经历', link: '/life/' },
-      { text: 'GitHub', link: 'https://github.com/yourname' }
+      { text: '面试', link: '/interview/' },     
+      { text: '前端面试宝典', link: '/frontguide/' },     
+      // { text: '创业', link: '/startup/' },
+      // { text: '人生经历', link: '/life/' }      
     ],
     sidebar: {
       '/frontend/': [
@@ -172,36 +171,46 @@ export default defineConfig({
           items: [
             { text: '介绍', link: '/interview/' },
             { text: '简历编写', link: '/interview/base' },
-            { text: 'h5c3面试题', link: '/interview/practice/h5c3' },
-            { text: 'js面试题', link: '/interview/practice/js' },
-            { text: 'vue面试题', link: '/interview/practice/vue' },
-            { text: 'react面试题', link: '/interview/practice/react' },
-            { text: '小程序面试题', link: '/interview/practice/wx' },
-            { text: '笔试及手写代码', link: '/interview/practice/code' },
-            { text: '算法题解', link: '/interview/algorithms/base' }
+            { text: '面试高级', link: '/interview/senior' },
+         
           ]
         }
-      ],     
-      '/startup/': [
+      ],    
+      '/frontguide/': [
         {
-          text: '创业经历',
+          text: '前端面试宝典',
           items: [
-            { text: '介绍', link: '/startup/' },
-            { text: '创业故事', link: '/startup/stories' },
-            { text: '经验分享', link: '/startup/experience' }
-          ]
+             { text: 'HTML5', link: '/frontguide/practice/h5' },
+            { text: 'css', link: '/frontguide/practice/css' },
+            { text: 'js面试题', link: '/frontguide/practice/js' },
+            { text: 'vue面试题', link: '/frontguide/practice/vue' },
+            { text: 'react面试题', link: '/frontguide/practice/react' },
+            { text: '小程序面试题', link: '/frontguide/practice/wx' },
+            { text: '手写代码', link: '/frontguide/practice/code' },
+            { text: '算法题解', link: '/frontguide/algorithm/base' }
+          ]        
         }
-      ],
-      '/life/': [
-        {
-          text: '人生经历',
-          items: [
-            { text: '介绍', link: '/life/' },
-            { text: '成长历程', link: '/life/growth' },
-            { text: '生活感悟', link: '/life/thoughts' }
-          ]
-        }
-      ]
+      ],  
+      // '/startup/': [
+      //   {
+      //     text: '创业经历',
+      //     items: [
+      //       { text: '介绍', link: '/startup/' },
+      //       { text: '创业故事', link: '/startup/stories' },
+      //       { text: '经验分享', link: '/startup/experience' }
+      //     ]
+      //   }
+      // ],
+      // '/life/': [
+      //   {
+      //     text: '人生经历',
+      //     items: [
+      //       { text: '介绍', link: '/life/' },
+      //       { text: '成长历程', link: '/life/growth' },
+      //       { text: '生活感悟', link: '/life/thoughts' }
+      //     ]
+      //   }
+      // ]
     }
   }
 })

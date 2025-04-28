@@ -16,6 +16,7 @@
 - 将yaml配置文件的yaml配置文件增加image地址为阿里云镜像地址
 - 将配置文件添加到1panel中进行运行
 - 在1panel上手动安装mysql和redis
+- 管理后台由于是给内部使用的，所以建议部署在本地连接线上mysql和redis，这样不消耗服务器资源,需要关注本地变化不影响线上数据变化.
 ### 打包本地镜像：
 docker build -t docker-compose-web:latest .
 docker tag docker-compose-web:latest gongzongxin/docker-deploy:latest
@@ -67,3 +68,8 @@ docker push crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.com/stefansky
         |                     |
     [管理后台前端]       [管理后台服务端]
 ```
+
+# 公司管理
+公司管理分为目标、管人和管事，管人和管事需要分开。(类似于政委和团长)
+管人：需要关注个人成长，个人诉求，个人能力
+管事: 需要关注：时间周期、参与人员、工作内容、工作目标，完成情况，未完成情况，项目责任人
