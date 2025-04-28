@@ -23,10 +23,3 @@
 - 面试复盘 
 
 
----
-## 面试指南
-- [简历如何编写](/interview/base)
-- [面试高级技巧](/interview/senior)
-- [前端面试宝典](/interview/frontguide)
-- [移动端布局](/frontend/web/mobile)
-- [布局应用](/frontend/web/less)
