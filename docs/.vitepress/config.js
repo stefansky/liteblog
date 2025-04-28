@@ -13,6 +13,7 @@ export default defineConfig({
       { text: '服务端', link: '/backend/' },
       { text: '项目', link: '/projects/' },
       { text: '面试', link: '/interview/' },
+      { text: '前端面试宝典', link: '/interview/practice/all' },
       { text: '创业', link: '/startup/' },
       { text: '人生经历', link: '/life/' },
       { text: 'GitHub', link: 'https://github.com/yourname' }
@@ -180,15 +181,7 @@ export default defineConfig({
             { text: '算法题解', link: '/interview/algorithms/base' }
           ]
         }
-      ],
-      '/interview/practice/': [
-        {
-          text: '前端面试宝典',
-          items: [
-            { text: '前端面试大纲', link: 'all' }           
-          ]
-        }
-      ],
+      ],     
       '/startup/': [
         {
           text: '创业经历',
