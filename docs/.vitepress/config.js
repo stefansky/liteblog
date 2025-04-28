@@ -44,7 +44,7 @@ export default defineConfig({
             { text: '3.构建工具', link: '/frontend/other/tool' },
             { text: '4.开发自己的npm包', link: '/frontend/other/npm' },
             { text: '5.网络请求', link: '/frontend/other/axios' },
-            { text: '6.webpack', link: '/frontend/other/webpack' }
+            { text: '6.webpack', link: '/frontend/other/webpack' },
             { text: '7.微前端', link: '/frontend/other/mico' }
           ]
         },
@@ -178,6 +178,14 @@ export default defineConfig({
             { text: '小程序面试题', link: '/interview/practice/wx' },
             { text: '笔试及手写代码', link: '/interview/practice/code' },
             { text: '算法题解', link: '/interview/algorithms/base' }
+          ]
+        }
+      ],
+      '/interview/practice/': [
+        {
+          text: '前端面试宝典',
+          items: [
+            { text: '前端面试大纲', link: 'all' }           
           ]
         }
       ],
