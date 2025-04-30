@@ -41,7 +41,10 @@ docker tag 13a4b2e03d1f crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.c
 docker push crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.com/stefansky/fast-service:1.0.0
 
 
-项目架构： 1.管理后台 2.商家端和用户端小程序
+# 项目架构
+
+- 1.管理后台 
+- 2.商家端和用户端小程序
 
 ```
 
