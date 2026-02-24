@@ -17,6 +17,7 @@
 - 将配置文件添加到1panel中进行运行
 - 在1panel上手动安装mysql和redis
 - 管理后台由于是给内部使用的，所以建议部署在本地连接线上mysql和redis，这样不消耗服务器资源,需要关注本地变化不影响线上数据变化.
+- 使用 Certbot解决https证书的问题。
 ### 打包本地镜像：
 docker build -t docker-compose-web:latest .
 docker tag docker-compose-web:latest gongzongxin/docker-deploy:latest
@@ -41,6 +42,8 @@ docker tag 13a4b2e03d1f crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.c
 docker push crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.com/stefansky/fast-service:1.0.0
 
 
+
+
 # 项目架构
 
 - 1.管理后台 
@@ -53,7 +56,7 @@ docker push crpi-bca0ftwzmuelyep2.cn-hangzhou.personal.cr.aliyuncs.com/stefansky
        |                     |
        +--------+------------+
                 |
-          [Kong API 网关]
+          [Kong API 网关]  或者 APISIX 网关+OpenResty
                 |
        +--------+--------+
        |                 |

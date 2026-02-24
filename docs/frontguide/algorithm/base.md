@@ -5,6 +5,7 @@ labuladong 的算法笔记：https://labuladong.online/algo/
 代码随想录：https://programmercarl.com/
 掘金AI刷题：https://juejin.cn/problemset
 玩算法：https://wansuanfa.com/
+leetcode全解：https://github.com/doocs/leetcode   ----https://leetcode.doocs.org/
 
 
 # 算法思想
